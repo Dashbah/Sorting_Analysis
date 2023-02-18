@@ -69,7 +69,7 @@ int Sorting::mergeSort(std::vector<int> &vector) {
 }
 
 int Sorting::quickSort(std::vector<int> &vector) {
-    return 0;
+    quickSort1(vector, 0, vector.size());
 }
 
 int Sorting::heapSort(std::vector<int> &vector) {
@@ -152,4 +152,51 @@ std::vector<Number> Sorting::countingSortForDigitSort(const std::vector<Number> 
         result[--b[vec[i].bytes[place] - min]] = vec[i];
     }
     return result;
+}
+
+int Sorting::partition(std::vector<int> &vec, int start, int end) {
+    int pivot = vec[start];
+
+    int count = 0;
+    for (int i = start + 1; i <= end; i++) {
+        if (vec[i] <= pivot) {
+            count++;
+        }
+    }
+
+    // Giving pivot element its correct position
+    int pivot_index = start + count;
+    std::swap(vec[pivot_index], vec[start]);
+
+    // Sorting left and right parts of the pivot element
+    int i = start, j = end;
+    while (i < pivot_index && j > pivot_index) {
+        while (vec[i] <= pivot) {
+            i++;
+        }
+        while (pivot < vec[j]) {
+            j--;
+        }
+        if (i < pivot_index && j > pivot_index) {
+            std::swap(vec[i++], vec[j--]);
+        }
+    }
+
+    return pivot_index;
+}
+
+void Sorting::quickSort1(std::vector<int> &vector, int start, int end) {
+    // base case
+    if (start >= end) {
+        return;
+    }
+
+    // partitioning the array
+    int p = partition(vector, start, end);
+
+    // Sorting the left part
+    quickSort1(vector, start, p - 1);
+
+    // Sorting the right part
+    quickSort1(vector, p + 1, end);
 }
