@@ -26,7 +26,14 @@ int Sorting::selectionSort(std::vector<int> &vector) {
 }
 
 int Sorting::bubbleSort(std::vector<int> &vector) {
-    return vector.size();
+    for (int i = 0; i < vector.size() - 1; i++) {
+        // Last i elements are already in place
+        for (int j = 0; j < vector.size() - i - 1; j++) {
+            if (vector[j] > vector[j + 1]) {
+                std::swap(vector[j], vector[j + 1]);
+            }
+        }
+    }
 }
 
 int Sorting::bubbleSort_Aiverson1(std::vector<int> &vector) {
