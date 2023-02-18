@@ -13,7 +13,7 @@ std::vector<int> REVERSED;
 
 std::vector<std::string> SORTING_NAMES = {
         "selectionSort", "bubbleSort", "bubbleSort_Aiverson1",
-        "bubbleSortAiverson1And2", "insertion sort", "binaryInsertionSort", "countingSortStable",
+        "bubbleSortAiverson1And2", "insertion sort", "binaryInsertionSort", "countingSort",
         "digitalSort", "mergeSort", "quickSort", "heapSort", "shellSort_Tsiur",
         "shellSort_Shell"
 };
@@ -31,7 +31,7 @@ int main() {
     std::vector<int (*)(std::vector<int>&)> sortings = {
             Sorting::selectionSort, Sorting::bubbleSort, Sorting::bubbleSort_Aiverson1,
             Sorting::bubbleSortAiverson1And2, Sorting::insertionSort,
-            Sorting::binaryInsertionSort, Sorting::countingSortStable, Sorting::digitalSort,
+            Sorting::binaryInsertionSort, Sorting::countingSort, Sorting::digitalSort,
             Sorting::mergeSort, Sorting::quickSort, Sorting::heapSort, Sorting::shellSort_Tsiur,
             Sorting::shellSort_Shell
     };
