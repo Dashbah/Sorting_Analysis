@@ -14,9 +14,9 @@ public:
 
     static int bubbleSort(std::vector<int> &vector);
 
-    static int bubbleSort_Aiverson1(std::vector<int> &vector);
+    static int bubbleSort_Iverson1(std::vector<int> &vector);
 
-    static int bubbleSortAiverson1And2(std::vector<int> &vector);
+    static int bubbleSort_Iverson1And2(std::vector<int> &vector);
 
     static int insertionSort(std::vector<int> &vector);
 

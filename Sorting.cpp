@@ -36,11 +36,23 @@ int Sorting::bubbleSort(std::vector<int> &vector) {
     }
 }
 
-int Sorting::bubbleSort_Aiverson1(std::vector<int> &vector) {
-    return 0;
+int Sorting::bubbleSort_Iverson1(std::vector<int> &vector) {
+    bool t = true;
+    for (int i = 0; i < vector.size() - 1; i++) {
+        t = false;
+        for (int j = 0; j < vector.size() - i - 1; ++j) {
+            if (vector[j] > vector[j + 1]) {
+                std::swap(vector[j], vector[j + 1]);
+                t = true;
+            }
+        }
+        if (!t) {
+            break;
+        }
+    }
 }
 
-int Sorting::bubbleSortAiverson1And2(std::vector<int> &vector) {
+int Sorting::bubbleSort_Iverson1And2(std::vector<int> &vector) {
     return 0;
 }
 
