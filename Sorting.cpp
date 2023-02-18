@@ -6,7 +6,23 @@
 #include "HeapSorted.h"
 
 int Sorting::selectionSort(std::vector<int> &vector) {
-    return 0;
+    int min_idx;
+    // One by one move boundary of
+    // unsorted subarray
+    for (int i = 0; i < vector.size() - 1; ++i) {
+        // Find the minimum element in
+        // unsorted array
+        min_idx = i;
+        for (int j = i + 1; j < vector.size(); j++) {
+            if (vector[j] < vector[min_idx])
+                min_idx = j;
+        }
+        // Swap the found minimum element
+        // with the first element
+        if (min_idx != i) {
+            std::swap(vector[min_idx], vector[i]);
+        }
+    }
 }
 
 int Sorting::bubbleSort(std::vector<int> &vector) {
