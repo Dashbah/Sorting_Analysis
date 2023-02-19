@@ -85,7 +85,22 @@ int Sorting::insertionSort(std::vector<int> &vector) {
 }
 
 int Sorting::binaryInsertionSort(std::vector<int> &vector) {
-    return 0;
+    int selected, place_to_insert, j;
+    for (auto current = 1; current < vector.size(); ++current) {
+        selected = vector[current];
+        j = current - 1;
+
+        // find location where selected should be inserted
+        place_to_insert = binarySearch(vector, selected, 0, j);
+
+        // Move all elements after location to create space
+        while (j >= place_to_insert) {
+            vector[j + 1] = vector[j];
+            --j;
+        }
+        vector[j + 1] = selected;
+    }
+    return vector.size();
 }
 
 int Sorting::countingSort(std::vector<int> &vector) {
@@ -130,7 +145,16 @@ int Sorting::heapSort(std::vector<int> &vector) {
 }
 
 int Sorting::shellSort_Tsiur(std::vector<int> &vector) {
-    return 0;
+    std::vector<int> tsiur = {1, 4, 10, 23, 57, 132, 301, 701, 1750};
+    size_t first = 0;
+    size_t last = vector.size();
+    for (auto d = (first + last) / 2; d != 0; d /= 2) {
+        for (auto i = first + d; i != last; ++i) {
+            for (auto j = i; j - first >= d && vector[j] < vector[j - d]; j -= d) {
+                std::swap(vector[j], vector[j - d]);
+            }
+        }
+    }
 }
 
 int Sorting::shellSort_Shell(std::vector<int> &vector) {
@@ -258,4 +282,22 @@ void Sorting::quickSort1(std::vector<int> &vector, int start, int end) {
 
     // Sorting the right part
     quickSort1(vector, p + 1, end);
+}
+
+int Sorting::binarySearch(const std::vector<int> &vec, int item,
+                          int low, int high) {
+    if (high <= low)
+        return (item > vec[low]) ?
+               (low + 1) : low;
+
+    int mid = (low + high) / 2;
+
+    if (item == vec[mid])
+        return mid + 1;
+
+    if (item > vec[mid])
+        return binarySearch(vec, item,
+                            mid + 1, high);
+    return binarySearch(vec, item, low,
+                        mid - 1);
 }

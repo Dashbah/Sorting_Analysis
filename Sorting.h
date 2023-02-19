@@ -50,6 +50,9 @@ private:
     static void quickSort1(std::vector<int> &vector, int start, int end);
 
     static int partition(std::vector<int> &vec, int start, int end);
+
+    static int binarySearch(const std::vector<int> &vec, int item,
+                            int low, int high);
 };
 
 
