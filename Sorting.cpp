@@ -53,7 +53,23 @@ int Sorting::bubbleSort_Iverson1(std::vector<int> &vector) {
 }
 
 int Sorting::bubbleSort_Iverson1And2(std::vector<int> &vector) {
-    return 0;
+    bool t;
+    size_t k = vector.size();
+    size_t curr_k;
+    for (int i = 0; i < vector.size() - 1; ++i) {
+        t = false;
+        curr_k = k;
+        for (int j = 0; j < curr_k; ++j) {
+            if (vector[j] > vector[j + 1]) {
+                std::swap(vector[j], vector[j + 1]);
+                t = true;
+                k = j + 1;
+            }
+        }
+        if (!t) {
+            break;
+        }
+    }
 }
 
 int Sorting::insertionSort(std::vector<int> &vector) {
