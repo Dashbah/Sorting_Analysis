@@ -5,7 +5,7 @@
 #include "CountTime.h"
 #include <chrono>
 
-Time CountTime::countTime(std::vector<int> vector, int (*func)(std::vector<int> &)) {
+Time CountTime::countTime(std::vector<int> vector, long long (*func)(std::vector<int> &)) {
     auto t1 = std::chrono::high_resolution_clock::now();
     long long operations = func(vector);
     auto t2 = std::chrono::high_resolution_clock::now();

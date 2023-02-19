@@ -5,7 +5,8 @@
 #include "Sorting.h"
 #include "HeapSorted.h"
 
-int Sorting::selectionSort(std::vector<int> &vector) {
+long long Sorting::selectionSort(std::vector<int> &vector) {
+    long long operations = 0;
     int min_idx;
     // One by one move boundary of
     // unsorted subarray
@@ -25,7 +26,7 @@ int Sorting::selectionSort(std::vector<int> &vector) {
     }
 }
 
-int Sorting::bubbleSort(std::vector<int> &vector) {
+long long Sorting::bubbleSort(std::vector<int> &vector) {
     for (int i = 0; i < vector.size() - 1; i++) {
         // Last i elements are already in place
         for (int j = 0; j < vector.size() - i - 1; j++) {
@@ -36,7 +37,7 @@ int Sorting::bubbleSort(std::vector<int> &vector) {
     }
 }
 
-int Sorting::bubbleSort_Iverson1(std::vector<int> &vector) {
+long long Sorting::bubbleSort_Iverson1(std::vector<int> &vector) {
     bool t = true;
     for (int i = 0; i < vector.size() - 1; i++) {
         t = false;
@@ -52,7 +53,7 @@ int Sorting::bubbleSort_Iverson1(std::vector<int> &vector) {
     }
 }
 
-int Sorting::bubbleSort_Iverson1And2(std::vector<int> &vector) {
+long long Sorting::bubbleSort_Iverson1And2(std::vector<int> &vector) {
     bool t;
     size_t k = vector.size();
     size_t curr_k;
@@ -72,7 +73,7 @@ int Sorting::bubbleSort_Iverson1And2(std::vector<int> &vector) {
     }
 }
 
-int Sorting::insertionSort(std::vector<int> &vector) {
+long long Sorting::insertionSort(std::vector<int> &vector) {
     long long operations = 0;
     for (auto current = 1; current < vector.size(); ++current) {
         ++operations;
@@ -84,7 +85,7 @@ int Sorting::insertionSort(std::vector<int> &vector) {
     return vector.size();
 }
 
-int Sorting::binaryInsertionSort(std::vector<int> &vector) {
+long long Sorting::binaryInsertionSort(std::vector<int> &vector) {
     int selected, place_to_insert, j;
     for (auto current = 1; current < vector.size(); ++current) {
         selected = vector[current];
@@ -103,7 +104,7 @@ int Sorting::binaryInsertionSort(std::vector<int> &vector) {
     return vector.size();
 }
 
-int Sorting::countingSort(std::vector<int> &vector) {
+long long Sorting::countingSort(std::vector<int> &vector) {
     int min = INT_MAX;
     int max = INT_MIN;
     for (auto value: vector) {
@@ -117,7 +118,7 @@ int Sorting::countingSort(std::vector<int> &vector) {
     countingSort1(vector, min, max);
 }
 
-int Sorting::digitalSort(std::vector<int> &vector) {
+long long Sorting::digitalSort(std::vector<int> &vector) {
     std::vector<Number> numbers;
     for (auto value: vector) {
         numbers.emplace_back(Number(value));
@@ -130,34 +131,32 @@ int Sorting::digitalSort(std::vector<int> &vector) {
     }
 }
 
-int Sorting::mergeSort(std::vector<int> &vector) {
+long long Sorting::mergeSort(std::vector<int> &vector) {
     mergeSort1(vector.begin(), vector.end());
 }
 
-int Sorting::quickSort(std::vector<int> &vector) {
+long long Sorting::quickSort(std::vector<int> &vector) {
     quickSort1(vector, 0, vector.size());
 }
 
-int Sorting::heapSort(std::vector<int> &vector) {
+long long Sorting::heapSort(std::vector<int> &vector) {
     HeapSorted heap = HeapSorted(vector);
     vector = std::move(heap.getHeap());
     return 0;
 }
 
-int Sorting::shellSort_Tsiur(std::vector<int> &vector) {
+long long Sorting::shellSort_Tsiur(std::vector<int> &vector) {
     std::vector<int> tsiur = {1, 4, 10, 23, 57, 132, 301, 701, 1750};
-    size_t first = 0;
-    size_t last = vector.size();
-    for (auto d = (first + last) / 2; d != 0; d /= 2) {
-        for (auto i = first + d; i != last; ++i) {
-            for (auto j = i; j - first >= d && vector[j] < vector[j - d]; j -= d) {
-                std::swap(vector[j], vector[j - d]);
+    for (int gap : tsiur) {
+        for (int i = gap; i < vector.size(); ++i) {
+            for (int j = i - gap; j >= 0 && vector[j] > vector[j + gap]; j -= gap) {
+                std::swap(vector[j], vector[j + gap]);
             }
         }
     }
 }
 
-int Sorting::shellSort_Shell(std::vector<int> &vector) {
+long long Sorting::shellSort_Shell(std::vector<int> &vector) {
     size_t first = 0;
     size_t last = vector.size();
     for (auto d = (first + last) / 2; d != 0; d /= 2) {

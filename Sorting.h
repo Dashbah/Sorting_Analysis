@@ -10,31 +10,31 @@
 
 class Sorting {
 public:
-    static int selectionSort(std::vector<int> &vector);
+    static long long selectionSort(std::vector<int> &vector);
 
-    static int bubbleSort(std::vector<int> &vector);
+    static long long bubbleSort(std::vector<int> &vector);
 
-    static int bubbleSort_Iverson1(std::vector<int> &vector);
+    static long long bubbleSort_Iverson1(std::vector<int> &vector);
 
-    static int bubbleSort_Iverson1And2(std::vector<int> &vector);
+    static long long bubbleSort_Iverson1And2(std::vector<int> &vector);
 
-    static int insertionSort(std::vector<int> &vector);
+    static long long insertionSort(std::vector<int> &vector);
 
-    static int binaryInsertionSort(std::vector<int> &vector);
+    static long long binaryInsertionSort(std::vector<int> &vector);
 
-    static int countingSort(std::vector<int> &vector);
+    static long long countingSort(std::vector<int> &vector);
 
-    static int digitalSort(std::vector<int> &vector);
+    static long long digitalSort(std::vector<int> &vector);
 
-    static int mergeSort(std::vector<int> &vector);
+    static long long mergeSort(std::vector<int> &vector);
 
-    static int quickSort(std::vector<int> &vector);
+    static long long quickSort(std::vector<int> &vector);
 
-    static int heapSort(std::vector<int> &vector);
+    static long long heapSort(std::vector<int> &vector);
 
-    static int shellSort_Tsiur(std::vector<int> &vector);
+    static long long shellSort_Tsiur(std::vector<int> &vector);
 
-    static int shellSort_Shell(std::vector<int> &vector);
+    static long long shellSort_Shell(std::vector<int> &vector);
 
 private:
     static int mergeSort1(std::vector<int>::iterator begin, std::vector<int>::iterator end);

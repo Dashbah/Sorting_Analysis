@@ -14,7 +14,7 @@ struct Time{
 
 class CountTime {
 public:
-    static Time countTime(std::vector<int> vector, int (*func)(std::vector<int>&));
+    static Time countTime(std::vector<int> vector, long long (*func)(std::vector<int>&));
 };
 
 
