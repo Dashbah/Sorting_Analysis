@@ -9,13 +9,14 @@
 
 class HeapSorted {
 public:
-    explicit HeapSorted(const std::vector<int> &vec);
+    explicit HeapSorted(const std::vector<int> &vec, long long &operations);
 
     std::vector<int> &getHeap();
 
 private:
     std::vector<int> list_;
     int size_;
+    long long *operations;
 
     int getMax();
 

@@ -37,22 +37,25 @@ public:
     static long long shellSort_Shell(std::vector<int> &vector);
 
 private:
-    static int mergeSort1(std::vector<int>::iterator begin, std::vector<int>::iterator end);
+    static int mergeSort1(std::vector<int>::iterator begin, std::vector<int>::iterator end,
+                          long long &operations);
 
     static void merge(std::vector<int>::iterator begin, std::vector<int>::iterator mid,
-                      std::vector<int>::iterator end);
+                      std::vector<int>::iterator end, long long &operations);
 
-    static void countingSort1(std::vector<int> &vec, int min, int max);
+    static void countingSort1(std::vector<int> &vec, int min, int max, long long &operations);
 
-    static std::vector<Number> countingSortForDigitSort(const std::vector<Number> &vec, int place, int min = 0,
-                                                        int max = 255);
+    static std::vector<Number>
+    countingSortForDigitSort(const std::vector<Number> &vec, int place, long long &operations,
+                             int min = 0,
+                             int max = 255);
 
-    static void quickSort1(std::vector<int> &vector, int start, int end);
+    static void quickSort1(std::vector<int> &vector, int start, int end, long long &operations);
 
-    static int partition(std::vector<int> &vec, int start, int end);
+    static int partition(std::vector<int> &vec, int start, int end, long long &operations);
 
     static int binarySearch(const std::vector<int> &vec, int item,
-                            int low, int high);
+                            int low, int high, int &operations);
 };
 
 
