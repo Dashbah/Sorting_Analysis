@@ -134,7 +134,15 @@ int Sorting::shellSort_Tsiur(std::vector<int> &vector) {
 }
 
 int Sorting::shellSort_Shell(std::vector<int> &vector) {
-    return 0;
+    size_t first = 0;
+    size_t last = vector.size();
+    for (auto d = (first + last) / 2; d != 0; d /= 2) {
+        for (auto i = first + d; i != last; ++i) {
+            for (auto j = i; j - first >= d && vector[j] < vector[j - d]; j -= d) {
+                std::swap(vector[j], vector[j - d]);
+            }
+        }
+    }
 }
 
 int Sorting::mergeSort1(const std::vector<int>::iterator begin, const std::vector<int>::iterator end) {
