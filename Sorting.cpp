@@ -60,7 +60,7 @@ long long Sorting::bubbleSort_Iverson1And2(std::vector<int> &vector) {
     for (int i = 0; i < vector.size() - 1; ++i) {
         t = false;
         curr_k = k;
-        for (int j = 0; j < curr_k; ++j) {
+        for (int j = 0; j < curr_k - 1; ++j) {
             if (vector[j] > vector[j + 1]) {
                 std::swap(vector[j], vector[j + 1]);
                 t = true;
@@ -136,7 +136,7 @@ long long Sorting::mergeSort(std::vector<int> &vector) {
 }
 
 long long Sorting::quickSort(std::vector<int> &vector) {
-    quickSort1(vector, 0, vector.size());
+    quickSort1(vector, 0, vector.size() - 1);
 }
 
 long long Sorting::heapSort(std::vector<int> &vector) {
