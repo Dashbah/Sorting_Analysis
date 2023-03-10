@@ -6,7 +6,7 @@
 #define ALGOSI_KDZ1_SORTINGS_SORTING_H
 
 #include <vector>
-#include "Number.h"
+#include "../Number/Number.h"
 
 class Sorting {
 public:

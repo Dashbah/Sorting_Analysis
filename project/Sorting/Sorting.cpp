@@ -3,7 +3,7 @@
 //
 
 #include "Sorting.h"
-#include "HeapSorted.h"
+#include "../HeapSorted/HeapSorted.h"
 
 long long Sorting::selectionSort(std::vector<int> &vector) {
     long long operations = 0;

@@ -1,9 +1,9 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include "VectorGenerator.h"
-#include "CountTime.h"
-#include "Sorting.h"
+#include "VectorGenerator/VectorGenerator.h"
+#include "CountTime/CountTime.h"
+#include "Sorting/Sorting.h"
 
 // iconic arrays to copy arrays to work it of them
 std::vector<int> FROM_0_TO_5;

@@ -8,7 +8,6 @@
 #include <vector>
 
 class VectorGenerator {
-
 public:
     static std::vector<int> createRandomFromTo(size_t size, int lower_bound, int upper_bound);
     static std::vector<int> createAlmostSorted(size_t size);
